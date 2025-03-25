@@ -1,4 +1,4 @@
-""" 개인 학습용이며 인터넷에 공개할 수 없습니다.
+"""개인 학습용이며 인터넷에 공개할 수 없습니다.
 ©2022 HongLab, Inc. All Rights Reserved
 
 - 이름이 동일한 사람이 없다고 가정하고 사람을 찾을 때도 이름으로만 찾는다.
@@ -68,7 +68,9 @@ def delete_person():
 def main_menu() -> int:
     """사용자의 입력을 받아서 검증하고 적절하다면 정수로 반환합니다."""
 
-    while user_input := input("(1) 찾기 (2) 추가/변경 (3) 삭제 (4) 모두 보기 (5) 종료 : "):
+    while user_input := input(
+        "(1) 찾기 (2) 추가/변경 (3) 삭제 (4) 모두 보기 (5) 종료 : "
+    ):
         if user_input in ("1", "2", "3", "4", "5"):
             return int(user_input)
         else:
@@ -85,7 +87,6 @@ contact_data = {}
 
 
 def main():
-
     global contact_data
 
     if os.path.isfile("my_contacts.json"):
@@ -95,7 +96,6 @@ def main():
 
     # main_menu()로 받아온 사용자의 입력에 따라 함수 호출
     while (selected := main_menu()) != 5:  # 5는 종료 메뉴
-
         {1: find_person, 2: update_person, 3: delete_person, 4: show_all}[selected]()
 
     else:
